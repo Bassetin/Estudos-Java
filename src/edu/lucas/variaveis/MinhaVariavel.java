@@ -1,23 +1,54 @@
 package edu.lucas.variaveis;
+import java.util.Scanner;
 
 public class MinhaVariavel {
+ 
+    
 
-    int minhaIdade = 21;
-    String nome = "Lucas";
-    double peso = 80.0;
-    boolean casado = false;
-    char homemMulher = 'H';
+    public static void main (String[] args){ 
+    Scanner s = new Scanner(System.in);
 
-    public static void main (String[] args){
+    int num1 = 0;
+    int num2 = 0;
+    String opcoes = "Somar", "Sub","Div","Mult";
+    int resultado;
 
-          MinhaVariavel var = new MinhaVariavel();
+    System.out.println("Digite uma opção:");
+    String opcoes = s.nextLine();
 
-          System.out.println(var.nome);
-          System.out.println(var.minhaIdade);
-          System.out.println(var.peso);
-          System.out.println(var.casado);
-          System.out.println(var.homemMulher);
 
+    switch (opcoes) {
+
+        case "Somar" : 
+            resultado = num1 + num2;
+             System.out.println(resultado);
+            break;
+
+        case "Sub" :
+            resultado = num1 - num2;
+             System.out.println(resultado);
+            break;
+
+        case "Div" :
+            resultado = num1 / num2;
+             System.out.println(resultado);
+            break;
+
+        case "Mult" :
+            resultado = num1 * num2;
+              System.out.println(resultado);
+            break;
+
+        default :    
+            System.out.println("Essa operação não existe");
+            break;
+            
+            
+
+        
+
+        
+    }
 
 
 
