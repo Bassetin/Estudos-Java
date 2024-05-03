@@ -1,55 +1,41 @@
 package edu.lucas.trabtv;
 
+import edu.lucas.trabtv.smartv.SmartTv; // CLASSE SMARTV
+
 public class Tv {
-    boolean ligadaDesligada = true;
-    int canal = 1;
-    int volume = 1;
 
-    boolean ligarOuDesligar (){
-            if (ligadaDesligada == false) {
-                ligadaDesligada = true;
-            }else{
-            ligadaDesligada = false;
-    }
-        return ligadaDesligada;
-    }
 
-    int aumentarCanal (){
-            canal++;
-        return canal;
-    }
-
-    int diminuirCanal (){
-            canal--;
-        return canal;
-    }
-
-    int aumentarVolume (){
-            volume++;
-        return volume;
-    }
-
-    int diminuirVolume (){
-            volume--;
-        return volume;
-    }
 
 
     public static void main(String [] args){
 
-        Tv obj = new Tv();
-        obj.aumentarCanal();
-        System.out.println(obj.canal);
-        obj.aumentarVolume();
-        System.out.println(obj.volume);
-        obj.diminuirCanal();
-        System.out.println(obj.canal);
-        obj.diminuirVolume();
-        System.out.println(obj.volume);
-        obj.ligarOuDesligar();
-        System.out.println(obj.ligadaDesligada);
+        // INSTANCIANDO A SMARTV PARA PODER TRABALHAR NOS SEUS MÉTODOS E VARIÁVEIS.
 
-        System.out.println(obj.ligadaDesligada);
+        SmartTv obj = new SmartTv();
+
+        //IMPRIMINDO O STATUS ATUAL DAS VARIÁVEIS.
+        System.out.println("A tv está :" +  obj.ligada);
+        System.out.println("O volume da tv está em :" +  obj.volume);
+        System.out.println("A tv está no canal :" +  obj.canal);
+
+        //CHAMANDO MÉTODOS
+        obj.aumentarCanal();
+        obj.aumentarCanal();
+        obj.selecionarCanal(14);
+        obj.aumentarVolume();
+        obj.aumentarVolume();
+        obj.diminuirVolume();
+        obj.desligar();
+
+
+        //VERIFICANDO NOVAMENTE O STATUS DAS VARIÁVEIS
+        System.out.println("A tv está :" +  obj.ligada);
+        System.out.println("O volume da tv está em :" +  obj.volume);
+        System.out.println("A tv está no canal :" +  obj.canal);
+
+
+
+
 
     }
 }
