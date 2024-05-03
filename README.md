@@ -4,9 +4,12 @@
 
 > Aproveite para garfar o diretório, praticar e codar 😎!
 
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Bassetin)
+
+
 # :books: O que iremos estudar? 
 
-## Anatomia da Classe
+## :brain: Anatomia da Classe
 
 > A escrita de um código de programa é feita através da composição de palavras pré-definidas pela linguagem **(palavras reservadas)**, com as expressões que utilizamos para determinar o nome dos nossos arquivos, classes, atributos e métodos.
 
@@ -52,7 +55,7 @@
 > E um tipo de dado lógico : `boolean`.
 
 
-## Variáveis
+## :chart_with_upwards_trend: Variáveis
  
 > Variável, é uma identificação de um espaço em memória, utilizado pelo nosso programa. Toda variável é composta por: tipo de dados + nomeDaVariável + valor atribuído. (O último em salvos casos podendo estar em branco).
 
@@ -92,7 +95,7 @@ short numeroCurto2 = numeroNormal;
 ```
 > Nesse código, conseguimos declarar a variável numeroCurto e numeroNormal, porém a numeroCurto2 não conseguiremos, pois o  `short` ser menor que o `int`. Porém o contrário, conseguiremos.
 
-## Constantes
+## :pushpin: Constantes
 
 > Constantes seguem os mesmos padrões que uma variável, porém com uma diferença.
 
@@ -130,7 +133,7 @@ public class ExemploVariavel {
 }
 ```
 
-## Operadores
+## :shipit: Operadores
 
 > Símbolos especiais, que tem um significado próprio para a linguagem e estão associados a determinadas operações.
 
