@@ -27,7 +27,12 @@
 
 > Dentro de uma aplicação, só utilizaremos *somente* **UM** método `main`.
 
-> O método `main` sempre terá a visibilidade `public` (para ser visivel e executavel em toda aplicação), será definido como `static` (para poder trabalhar de forma distinta das outras classes e métodos), não retornará nenhum valor com `void` (palavra reservada para dizer que o bloco não precisará retornar algum valor) e receberá um parâmetro do tipo Array de caracteres `String []`(Para emitirmos textos, frases e argumentos para a classe). 
+> O método `main` sempre terá a visibilidade `public` (para ser visivel e executavel em toda aplicação), será definido como `static` (para poder trabalhar de forma distinta das outras classes e métodos), não retornará nenhum valor com `void` (palavra reservada para dizer que o bloco não precisará retornar algum valor) e receberá um parâmetro do tipo Array de caracteres `String []`(Para emitirmos textos, frases e argumentos para a classe).
+
+>Os modificadores `public` e `static` podem ser escritos em qualquer ordem ( `public static ` ou `static public`), mas a convenção é usar `public static`.
+
+> O `main` método aceita um único argumento: um array de elementos do tipo `String`. Essa matriz é o mecanismo pelo qual o sistema de tempo de execução passa informações para sua aplicação.Cada string na matriz é chamada de argumento de linha de comando . Os argumentos da linha de comando permitem que os usuários afetem a operação do aplicativo sem recompilá-lo. 
+
 
 ### Tipos de Dados primitivos
 
@@ -410,6 +415,131 @@ public class MyClass {
 
 
 ```
+
+## Convenções e Nomenclaturas
+
+> Na programação, tudo é relativo. Quando trabalhamos com um código mais simples e curto podemos ter grandes capacidades de organização, porém quanto mais o nosso projeto cresce, mais o nosso código tende a ficar desorganizado. Com isso, seguimos algumas convenções, para auxiliar no entendimento e organização do nosso projeto.
+
+- **Classe** - Devemos sempre nomear a classe e o nome do arquivo, com a inicial Maiúscula! E se a palavra for composta, as iniciais também são maiúsculas!
+
+`public class CalculadoraCientifica {}`
+
+- **Variáveis e Métodos** - Devemos sempre nomear a variável ou o Método com a inicial minúscula e sua composição maiúscula!
+
+**OBS** - Na criação de métodos, é recomendado colocar o nome do método no infinitivo para facilitar a leitura e entendimento do código.
+
+```
+double salarioMensal = 1480.00 // Variável do tipo double.
+String formatarCep (long cep) // Método que transforma o parâmetro long para String.
+void calcularEnviar() // Esse método tem um nome contraditório.(Ele calcula ou envia?)
+```
+
+- **Constantes** - Nas constantes devemos sempre nomear com tudo maiúsculo! Assim, um desenvolvedor ja teria ciência que é uma variável constante.
+
+`final int ESTADOS_BRASILEIRO = 27`
+
+
+
+## Iniciando na P.O.O 
+
+### O que é um objeto?
+
+> Os objetos são essenciais para a compreensão da tecnologia orientada a objetos. Olhe ao seu redor agora mesmo e você encontrará muitos exemplos de objetos do mundo real: seu cachorro, sua mesa, seu aparelho de televisão, sua bicicleta.
+
+> Os objetos do mundo real compartilham duas características: todos eles têm estado e comportamento . Os cães possuem estado (nome, cor, raça, fome) e comportamento (latir, buscar, abanar o rabo). As bicicletas também têm estado (marcha atual, cadência atual do pedal, velocidade atual) e comportamento (mudança de marcha, mudança de cadência do pedal, aplicação de freios). Identificar o estado e o comportamento de objetos do mundo real é uma ótima maneira de começar a pensar em termos de programação orientada a objetos.
+
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://docs.oracle.com/javase/tutorial/figures/java/concepts-object.gif">
+  <source media="(prefers-color-scheme: light)" srcset="https://docs.oracle.com/javase/tutorial/figures/java/concepts-object.gif">
+  <img alt="Mostra uma ilustração de um objeto." src="https://docs.oracle.com/javase/tutorial/figures/java/concepts-object.gif">
+</picture>
+
+> Os objetos de software são conceitualmente semelhantes aos objetos do mundo real: eles consistem em **estado** e **comportamento**. Um objeto armazena seu estado em campos (variáveis) e expõe seu comportamento através de métodos (funções em algumas linguagens de programação). Os métodos operam no estado interno de um objeto e servem como mecanismo principal para comunicação entre objetos. Ocultar o estado interno e exigir que toda a interação seja realizada através dos métodos de um objeto é conhecido como encapsulamento de dados — um princípio fundamental da programação orientada a objetos.
+
+<picture>
+	<source media="(prefers-color-scheme: dark)" srcset="https://docs.oracle.com/javase/tutorial/figures/java/concepts-bicycleObject.gif">
+ 	<source media="(prefers-color-screme: light)" srcset="https://docs.oracle.com/javase/tutorial/figures/java/concepts-bicycleObject.gif">
+ 	<img alt="Exemplo de um objeto (MOTO)." src="https://docs.oracle.com/javase/tutorial/figures/java/concepts-bicycleObject.gif">
+ 
+</picture>
+
+> Ao atribuir o estado (velocidade atual, cadência atual do pedal e marcha atual) e fornecer métodos para alterar esse estado, o objeto permanece no controle de como o mundo exterior pode usá-lo. Por exemplo, se a bicicleta tiver apenas 6 marchas, um método para mudar de marcha poderia rejeitar qualquer valor menor que 1 ou maior que 6.
+
+### O que é uma classe? 
+
+> No mundo real, muitas vezes você encontrará muitos objetos individuais, todos do mesmo tipo. Pode haver milhares de outras bicicletas, todas da mesma marca e modelo. Cada bicicleta foi construída a partir do mesmo conjunto de projetos e, portanto, contém os mesmos componentes. Em termos de orientação a objetos, dizemos que sua bicicleta é uma **instância** da classe de objetos conhecida como bicicletas. Uma classe é o modelo a partir do qual os objetos individuais são criados.
+
+Veremos agora, um exemplo de uma classe Bicicleta no java:
+
+```
+classe Bicicleta {
+
+    int cadencia = 0;
+    int velocidade = 0;
+    int marcha = 1;
+
+    void mudarCadencia(int novoValor) {
+         cadencia = novoValor;
+    }
+
+    void mudarMarcha(int novoValor) {
+         marcha = novoValor;
+    }
+
+    void aumentarVelocidade(int incremento) {
+         velocidade = velocidade + incremento;   
+    }
+
+    void freiar(int decremento) {
+         velocidade = velocidade - decremento;
+    }
+
+    void printarStatus() {
+         System.out.println("cadencia:" +
+             cadencia + "velocidade:" +
+             velocidade + "marcha:" + marcha);
+    }
+}
+```
+
+- Os campos cadencia, velocidade, e marcha o estado do objeto, e os métodos ( mudarCadencia, mudarMarcha, aumentarVelocidade etc.) definem sua interação com o mundo exterior.
+
+>[!IMPORTANT]
+> Você deve ter notado que a classe Bicicleta não contém um método `main`. Isso porque não é um aplicativo completo; é apenas o modelo de bicicletas que pode ser usado em um aplicativo. A responsabilidade de criar e usar novos objetos da Bicicleta pertence a alguma outra classe da sua aplicação.
+
+Veremos agora, uma outra classe com o método main e executaremos a nossa aplicação.
+
+```
+class BicycleDemo { 
+    public static void main(String[] args) { 
+
+        // Cria dois 
+        // objetos de bicicleta diferentes 
+        Bicicleta bike1 = new Bicicleta(); 
+        Bicicleta bike2 = new Bicicleta(); 
+
+        // Invoca métodos 
+        // nesses objetos 
+        bike1.mudarCadencia(50); 
+        bike1.aumentarVelocidade(10); 
+        bike1.mudarMarcha(2); 
+        bike1.printarStatus(); 
+
+        bike2.mudarCadencia(50); 
+        bike2.aumentarVelocidade(10); 
+        bike2.mudarMarcha(2); 
+        bike2.mudarCadencia(40); 
+        bike2.aumentarVelocidade(10); 
+        bike2.mudarMarcha(3); 
+        bike2.printarStatus(); 
+    } 
+}
+
+```
+**OBS** : Veja que criamos 2 objetos proveniente da classe Bicicleta, logo, temos 2 bicicletas. Uma `bike1` e a outra `bike2`.
+
+
 
 Essa documentação teve base em vários materiais de estudos.
 > [Gitbook Java Básico](https://glysns.gitbook.io/java-basico)
