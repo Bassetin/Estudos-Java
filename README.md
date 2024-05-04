@@ -368,7 +368,57 @@ System.out.println("O numero 2 agora é " + numero2);
 
 ## Métodos
 
+> São todas as ações, movimentos de nossa aplicação.
+
+>Uma classe é definida por atributos e métodos. Já vimos que atributos são, em sua grande maioria, variáveis de diferentes tipos e valores. Os métodos, por sua vez, correspondem a funções ou sub-rotinas disponíveis dentro de nossas classes.
+
+> A estrutura do método é `tipo retorno + nomeDoMétodo + (parametro é opcional)`.
+
+### Critério de definição de métodos
+
+Antes de criarmos nossos métodos, devemos saber algumas finalidades antes da criação.
+
+- Qual a proposta principal do método?
+>Você deve se perguntar constantemente até compreender a real finalidade do mesmo.
+
+- O método tem que retornar algum valor?
+>Você deve analisar se o método será responsável por retornar algum valor ou não.
+
+- Quais os parâmetros serão necessários para execução do método ?
+Os métodos às vezes precisarão de argumentos como critérios para a execução.
+
+- O método possui o risco de apresentar alguma exceção?
+>Exceções são comuns na execução de métodos, as vezes é necessário prever e tratar a possível existência de uma exceção.
+
+- Qual a visibilidade do método?
+> Ele será visível para toda a classe ? toda a pasta ? toda aplicação?
+
+Veremos exemplos de métodos.
+```
+public class MyClass {
+	
+	public double somar(int num1, int num2){
+		//LOGICA - FINALIDADE DO MÉTODO
+		return ... ;
+	}
+	
+	public void imprimir(String texto){
+		//LOGICA - FINALIDADE DO MÉTODO
+		//AQUI NÃO PRECISA DO RETURN
+		//POIS NÃO SERÁ RETORNADO NENHUM RESULTADO
+	}
+
+
+```
 
 Essa documentação teve base em vários materiais de estudos.
 > [Gitbook Java Básico](https://glysns.gitbook.io/java-basico)
+
+> [W3Schools](https://www.w3schools.com/java/)
+
+>[Learn Java](https://dev.java/learn/)
+
+>[Java Documentation](https://docs.oracle.com/javase/tutorial/tutorialLearningPaths.html)
+
+
 
