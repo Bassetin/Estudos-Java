@@ -416,7 +416,7 @@ public class MyClass {
 
 ```
 
-## Convenções e Nomenclaturas
+## Convenções e Nomenclaturas (Java Beans)
 
 > Na programação, tudo é relativo. Quando trabalhamos com um código mais simples e curto podemos ter grandes capacidades de organização, porém quanto mais o nosso projeto cresce, mais o nosso código tende a ficar desorganizado. Com isso, seguimos algumas convenções, para auxiliar no entendimento e organização do nosso projeto.
 
@@ -437,7 +437,6 @@ void calcularEnviar() // Esse método tem um nome contraditório.(Ele calcula ou
 - **Constantes** - Nas constantes devemos sempre nomear com tudo maiúsculo! Assim, um desenvolvedor ja teria ciência que é uma variável constante.
 
 `final int ESTADOS_BRASILEIRO = 27`
-
 
 
 ## Iniciando na P.O.O 
@@ -626,10 +625,121 @@ Bem, acima já podemos perceber que existe uma definição, para o uso do nome d
 
 ### Identificação
 
-Uma das características de uma classe é a sua identificação: Cliente, NotaFiscal, TituloPagar. Porém quando esta classe é organizada por pacotes, ela passa a ter duas identificações. O nome simples (próprio nome) e agora o nome qualificado (endereçamento do pacote + nome), exemplo: Considere a classe Usuario, que está endereçada no pacote com.controle.acesso.model, o nome qualificado desta classe é com.controle.acesso.model.Usuario.
+Uma das características de uma classe é a sua identificação: Cliente, NotaFiscal, TituloPagar. Porém quando esta classe é organizada por pacotes, ela passa a ter duas identificações. O nome simples (próprio nome) e agora o nome qualificado (endereçamento do pacote + nome), exemplo: Considere a classe Usuario, que está endereçada no pacote `com.controle.acesso.model`, o nome qualificado desta classe é `com.controle.acesso.model.Usuario.`
+
+## Modificadores 
+
+Em Java, utilizamos três palavras reservadas e um conceito default (sem nehuma palavra reservada) para definir os quatro tipo de visibilidade de atributos, métodos e até mesmo classes, no que se refere ao acesso por outras classes.
+
+### Modificador Public 
+
+Como o próprio nome representa, quando nossa classe, método e atributo é definido como public, qualquer outra classe em qualquer outro pacote, poderá visualizar tais recursos.
 
 
 
+<picture>
+	<source media="(prefers-color-scheme: dark)" srcset="https://glysns.gitbook.io/~gitbook/image?url=https%3A%2F%2F1693191620-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FjFR9F4NToQ6FD39fU3wC%252Fuploads%252Fgit-blob-11e169f025fbf09ce369a6166a354d12c7a2f794%252Flanchonete_1.png%3Falt%3Dmedia&width=768&dpr=1&quality=100&sign=96464960b690f023c20cc2106819cba854916d8c0f73d041edd3656fe98fe5e9">
+ 	<source media="(prefers-color-screme: light)" srcset="https://glysns.gitbook.io/~gitbook/image?url=https%3A%2F%2F1693191620-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FjFR9F4NToQ6FD39fU3wC%252Fuploads%252Fgit-blob-11e169f025fbf09ce369a6166a354d12c7a2f794%252Flanchonete_1.png%3Falt%3Dmedia&width=768&dpr=1&quality=100&sign=96464960b690f023c20cc2106819cba854916d8c0f73d041edd3656fe98fe5e9">
+ 	<img alt="Container das Classes" src="https://glysns.gitbook.io/~gitbook/image?url=https%3A%2F%2F1693191620-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FjFR9F4NToQ6FD39fU3wC%252Fuploads%252Fgit-blob-11e169f025fbf09ce369a6166a354d12c7a2f794%252Flanchonete_1.png%3Falt%3Dmedia&width=768&dpr=1&quality=100&sign=96464960b690f023c20cc2106819cba854916d8c0f73d041edd3656fe98fe5e9">
+
+</picture>
+
+### Modificador Default
+
+O modificador `default`, está fortemente associado a organização das classes por pacotes, algumas implementações, não precisam estar disponíveis por todo o projeto, e este modificador de acesso, restringe a visibilidade por pacotes.
+
+Dentro do pacote lanchonete, iremos criar dois sub-pacotes para representar a divisão do estabelecimento.
+
+> lanchonete.atendimento.cozinha: Pacote que contém classes, da parte da cozinha da lanchonete e atendimentos.
+
+> lanchonete.area.cliente: Pacote que contém classes, relacionadas ao espaço do cliente.
+
+
+
+<picture>
+	<source media="(prefers-color-scheme: dark)" srcset="https://glysns.gitbook.io/~gitbook/image?url=https%3A%2F%2F1693191620-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FjFR9F4NToQ6FD39fU3wC%252Fuploads%252Fgit-blob-1fdf089ebb01ef7239344fbeae3dbf9ca71c1db0%252Fpacotes.png%3Falt%3Dmedia&width=768&dpr=4&quality=100&sign=62700f25ee79027f5cc0c161122c7e44cee300b12f9b5a7f0ec910706cfb19cb">
+ 	<source media="(prefers-color-screme: light)" srcset="https://glysns.gitbook.io/~gitbook/image?url=https%3A%2F%2F1693191620-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FjFR9F4NToQ6FD39fU3wC%252Fuploads%252Fgit-blob-1fdf089ebb01ef7239344fbeae3dbf9ca71c1db0%252Fpacotes.png%3Falt%3Dmedia&width=768&dpr=4&quality=100&sign=62700f25ee79027f5cc0c161122c7e44cee300b12f9b5a7f0ec910706cfb19cb">
+ 	<img alt="Container das Classes" src="https://glysns.gitbook.io/~gitbook/image?url=https%3A%2F%2F1693191620-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FjFR9F4NToQ6FD39fU3wC%252Fuploads%252Fgit-blob-1fdf089ebb01ef7239344fbeae3dbf9ca71c1db0%252Fpacotes.png%3Falt%3Dmedia&width=768&dpr=4&quality=100&sign=62700f25ee79027f5cc0c161122c7e44cee300b12f9b5a7f0ec910706cfb19cb">
+
+</picture>
+
+**OBS :** Para definir um método visível a nível de pacote, basta **NÃO** declarar nenhum modificador.
+
+### Modificador Private
+
+O modificador `private`, está fortemente associado apenas as classes, logo, não podendo ser acessado por nenhuma outra classe.
+
+## Getters e Setters
+
+Os métodos "Getters" e "Setters" são utilizados para buscar valores de atributos ou definir novos valores de atributos, de instâncias de classes.
+
+> O método Getter, retorna o valor do atributo especificado.
+
+> O método Setter, define outro novo valor para o atributo especificado.
+
+```
+// arquivo Aluno.java
+public class Aluno {
+	String nome;
+	int idade;
+}
+
+// arquivo Escola.java
+public class Escola {
+	public static void main(String[] args) {
+		Aluno felipe = new Aluno();
+		felipe.nome="Felipe";
+		felipe.idade = 8;
+		
+		System.out.println("O aluno " + felipe.nome + " tem " + felipe.idade + " anos ");
+		//RESULTADO NO CONSOLE
+		//O aluno Felipe tem 8 anos 		
+	}
+}
+```
+
+**Seguindo a convenção Java Beans, uma classe que contém esta estrutura de estados deverá seguir as regras abaixo:**
+
+Os atributos precisam ter o modificador de acesso `private`. Ex.: `private String nome`;
+
+Como agora os atributos estarão somente a nível de classe, precisaremos dos métodos getX e setX, Ex.: `getNome()` e `setNome(String novoNome)`;
+
+O método get, é responsável por obter o valor atual do atributo, logo ele precisa ser public, retornar um tipo correspondente ao valor, Ex.: `public String getNome() {}`;
+
+O método set, é responsável por definir ou modificar o valor de um atributo em um objeto, logo, ele também precisa ser public, receber um parâmetro do mesmo tipo da variável, mas não retorna nenhum valor void. Ex.: `public void setNome(String newNome)`;
+
+Veremos agora um exemplo com getters and setters, com o mesmo programa do exemplo anterior...
+
+```
+//arquivo Aluno.java
+public class Aluno {
+	private String nome;
+	private int idade;
+	
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String newNome) {
+		nome = newNome;
+	}
+	public int getIdade() {
+		return idade;
+	}
+	public void setIdade(int newIdade) {
+		this.idade = newIdade;
+	}
+}
+//arquivo Escola.java
+public class Escola {
+	public static void main(String[] args) {
+		Aluno felipe = new Aluno();
+		felipe.setNome("Felipe");
+		felipe.setIdade(8);
+		
+		System.out.println("O aluno " + felipe.getNome() + " tem " + felipe.getIdade() + " anos ");	
+	}
+}
+```
 
 
 
