@@ -470,6 +470,31 @@ void calcularEnviar() // Esse método tem um nome contraditório.(Ele calcula ou
 
 > No mundo real, muitas vezes você encontrará muitos objetos individuais, todos do mesmo tipo. Pode haver milhares de outras bicicletas, todas da mesma marca e modelo. Cada bicicleta foi construída a partir do mesmo conjunto de projetos e, portanto, contém os mesmos componentes. Em termos de orientação a objetos, dizemos que sua bicicleta é uma **instância** da classe de objetos conhecida como bicicletas. Uma classe é o modelo a partir do qual os objetos individuais são criados.
 
+
+Toda a estrutura de código, na linguagem Java é distribuído em arquivos, com extensão .java denominados de classe.
+
+As classes existentes em nosso projeto, serão composta por:
+
+Identificador, Características e Comportamentos.
+
+> Classe (class): A estrutura e/ou representação que direciona a criação dos objetos de mesmo tipo.
+
+> Identificador (identity): Propósito existencial aos objetos que serão criados.
+
+> Características (states): Também conhecido como atributos ou propriedades, é toda informação que representa o estado do objeto.
+
+> Comportamentos (behavior): Também conhecido como ações ou métodos, é toda parte comportamental que um objeto dispõe.
+
+> Instanciar (new): É o ato de criar um objeto a partir de estrutura, definida em uma classe.
+
+
+<picture>
+	<source media="(prefers-color-scheme: dark)" srcset="https://cdn.hashnode.com/res/hashnode/image/upload/v1686511238168/bd455403-f1ff-47db-9798-c0d68d5736c5.webp">
+ 	<source media="(prefers-color-screme: light)" srcset="https://cdn.hashnode.com/res/hashnode/image/upload/v1686511238168/bd455403-f1ff-47db-9798-c0d68d5736c5.webp">
+ 	<img alt="Exemplo de um objeto (MOTO)." src="https://cdn.hashnode.com/res/hashnode/image/upload/v1686511238168/bd455403-f1ff-47db-9798-c0d68d5736c5.webp">
+ 
+</picture>
+
 Veremos agora, um exemplo de uma classe Bicicleta no java:
 
 ```
@@ -538,6 +563,76 @@ class BicycleDemo {
 
 ```
 **OBS** : Veja que criamos 2 objetos proveniente da classe Bicicleta, logo, temos 2 bicicletas. Uma `bike1` e a outra `bike2`.
+
+**Para criação de classes, classificamos-as como:**
+
+Seguindo algumas convenções, as nossas classes são classificadas como:
+
+> Classe de modelo (model): classes que representam estrutura de domínio da aplicação, exemplo: Cliente, Pedido, Nota Fiscal e etc.
+
+> Classe de serviço (service): classes que contém regras de negócio e validação de nosso sistema.
+
+> Classe de repositório (repository): classes que contém uma integração com banco de dados.
+
+> Classe de controle (controller): classes que possuem a finalidade de disponibilizar alguma comunicação externa, à nossa aplicação, como http web ou webservices.
+
+> Classe utilitária (util): classe que contém recursos comuns, à toda nossa aplicação.
+
+<picture>
+	<source media="(prefers-color-scheme: dark)" srcset="https://glysns.gitbook.io/~gitbook/image?url=https%3A%2F%2F1693191620-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FjFR9F4NToQ6FD39fU3wC%252Fuploads%252Fgit-blob-2ce73deabfce2bcbe385e6fb4c19e9a510941778%252Fimage%2520%287%29%2520%281%29%2520%281%29.png%3Falt%3Dmedia&width=768&dpr=4&quality=100&sign=485026aaf1a8fe67c5f89268eef3287feba775ae4d3ef258f8d53c56e3e05272">
+ 	<source media="(prefers-color-screme: light)" srcset="https://glysns.gitbook.io/~gitbook/image?url=https%3A%2F%2F1693191620-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FjFR9F4NToQ6FD39fU3wC%252Fuploads%252Fgit-blob-2ce73deabfce2bcbe385e6fb4c19e9a510941778%252Fimage%2520%287%29%2520%281%29%2520%281%29.png%3Falt%3Dmedia&width=768&dpr=4&quality=100&sign=485026aaf1a8fe67c5f89268eef3287feba775ae4d3ef258f8d53c56e3e05272">
+ 	<img alt="Container das Classes" src="https://glysns.gitbook.io/~gitbook/image?url=https%3A%2F%2F1693191620-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FjFR9F4NToQ6FD39fU3wC%252Fuploads%252Fgit-blob-2ce73deabfce2bcbe385e6fb4c19e9a510941778%252Fimage%2520%287%29%2520%281%29%2520%281%29.png%3Falt%3Dmedia&width=768&dpr=4&quality=100&sign=485026aaf1a8fe67c5f89268eef3287feba775ae4d3ef258f8d53c56e3e05272">
+ 
+</picture>
+
+## Pacotes
+
+A linguagem Java, é composta por milhares de classes, com as finalidades de por exemplo: Classes de tipos de dados, representação de texto, números, datas, arquivos e diretórios, conexão com banco de dados, entre outras. Imagina todas estas classes, existindo em um único nível de documentos?
+
+Para prevenir este acontecimento, a linguagem dispõe de um recurso, que organiza as classes padrões criadas por nós, que conhecemos como pacote (package). Os pacotes são subdiretórios, a partir da pasta src do nosso projeto, onde estão localizadas, as classes da linguagem e novas que forem criadas para o projeto.
+
+
+<picture>
+	<source media="(prefers-color-scheme: dark)" srcset="https://glysns.gitbook.io/~gitbook/image?url=https%3A%2F%2F1693191620-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FjFR9F4NToQ6FD39fU3wC%252Fuploads%252Fgit-blob-85650fe21efc214012ba8e0ef7d5374464f2fe59%252Fimage%2520%2818%29%2520%281%29.png%3Falt%3Dmedia&width=768&dpr=1&quality=100&sign=904266bb930eb6bdbbb21e0f79d60f8f60a90c7e51ef88eb317cbab3cee467f7">
+ 	<source media="(prefers-color-screme: light)" srcset="https://glysns.gitbook.io/~gitbook/image?url=https%3A%2F%2F1693191620-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FjFR9F4NToQ6FD39fU3wC%252Fuploads%252Fgit-blob-85650fe21efc214012ba8e0ef7d5374464f2fe59%252Fimage%2520%2818%29%2520%281%29.png%3Falt%3Dmedia&width=768&dpr=1&quality=100&sign=904266bb930eb6bdbbb21e0f79d60f8f60a90c7e51ef88eb317cbab3cee467f7">
+ 	<img alt="Container das Classes" src="https://glysns.gitbook.io/~gitbook/image?url=https%3A%2F%2F1693191620-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FjFR9F4NToQ6FD39fU3wC%252Fuploads%252Fgit-blob-85650fe21efc214012ba8e0ef7d5374464f2fe59%252Fimage%2520%2818%29%2520%281%29.png%3Falt%3Dmedia&width=768&dpr=1&quality=100&sign=904266bb930eb6bdbbb21e0f79d60f8f60a90c7e51ef88eb317cbab3cee467f7">
+
+</picture>
+
+### Nomenclatura
+
+Vamos imaginar, que sua empresa se chama Power Soft e ela está desenvolvendo software comercial, governamental e um software livre ou de código aberto. Abaixo teríamos os pacotes sugeridos conforme tabela abaixo:
+
+- Comercial : com.powersoft;
+
+- Governamental : gov.powersoft;
+
+- Código aberto: org.powersoft.
+
+
+Bem, acima já podemos perceber que existe uma definição, para o uso do nome dos pacotes, porém, podemos organizar ainda mais um pouco as nossas classes, mediante a proposta de sua existência:
+
+- model : Classes que representam a camada e modelo da aplicação : Cliente, Pedido, NotaFiscal, Usuario;
+
+- repository: Classes ou interfaces que possuem a finalidade de interagir com tabelas no banco de dados: ClienteRepository;
+
+- service: Classes que contém regras de negócio do sistema : ClienteService possui o método validar o CPF, do cliente cadastrado;
+
+- controller: Classes que possuem a finalidade de, disponibilizar os nossos recursos da aplicação, para outras aplicações via padrão HTTP;
+
+- view: Classes que possuem alguma interação, com a interface gráfica acessada pelo usuário;
+
+- util: Pacote que contém, classes utilitárias do sistema: FormatadorNumeroUtil, ValidadorUtil.
+
+### Identificação
+
+Uma das características de uma classe é a sua identificação: Cliente, NotaFiscal, TituloPagar. Porém quando esta classe é organizada por pacotes, ela passa a ter duas identificações. O nome simples (próprio nome) e agora o nome qualificado (endereçamento do pacote + nome), exemplo: Considere a classe Usuario, que está endereçada no pacote com.controle.acesso.model, o nome qualificado desta classe é com.controle.acesso.model.Usuario.
+
+
+
+
+
+
 
 
 
