@@ -1168,7 +1168,7 @@ Essa documentação teve base em vários materiais de estudos.
 
 >[Java Documentation](https://docs.oracle.com/javase/tutorial/tutorialLearningPaths.html)
 
->[Java API'S Overview]([https://dev.java/learn/](https://docs.oracle.com/javase/8/docs/api/index.html))
+>[Java API'S Overview](https://docs.oracle.com/javase/8/docs/api/index.html)
 
 
 
