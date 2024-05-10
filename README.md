@@ -693,95 +693,6 @@ Seguindo algumas convenções, as nossas classes são classificadas como:
  
 </picture>
 
-## Herança
-
- A programação orientada a objetos permite que as classes herdem estados e comportamentos comumente usados ​​de outras classes. Neste exemplo, Bicycle  torna-se a superclasse de BMX, Bicicleta de Corrida e Bicicleta dupla. Na linguagem de programação Java, cada classe pode ter uma superclasse direta, e cada superclasse tem potencial para um número ilimitado de subclasses :
- 
-<picture>
-	<source media="(prefers-color-scheme: dark)" srcset="https://docs.oracle.com/javase/tutorial/figures/java/concepts-bikeHierarchy.gif">
- 	<source media="(prefers-color-screme: light)" srcset="https://docs.oracle.com/javase/tutorial/figures/java/concepts-bikeHierarchy.gif">
- 	<img alt="Herança de classes" src="https://docs.oracle.com/javase/tutorial/figures/java/concepts-bikeHierarchy.gif">
- 
-</picture> 
-
-Neste exemplo acima, temos a superclasse `Bicicleta`, que pode ter subclasses que tendem a ter estados ou comportamentos diferentes. 
-A sintaxe para criar uma subclasse é simples. No início da declaração de sua classe, use a  palavra-chave `extends`, seguida do nome da classe da qual herdar:
-
-```
-class MountainBike extends Bicicleta {
-
-    // novos campos e métodos definindo
-    // uma mountain bike iria aqui
-
-}
-
-```
-
-> Isso fornece a MountainBike todos os mesmos campos e métodos do Bicicleta, mas permite que seu código se concentre exclusivamente nos recursos que o tornam único. Isso torna o código de suas subclasses fácil de ler. Porém, você deve ter o cuidado de documentar adequadamente o estado e o comportamento que cada superclasse define, pois esse código não aparecerá no arquivo fonte de cada subclasse.
-
-## Interface 
-
-O que é uma interface? 
-
-Como você já aprendeu, os objetos definem sua interação com o mundo exterior através dos métodos que expõem. Os métodos formam a interface do objeto com o mundo exterior; os botões na parte frontal do seu aparelho de televisão, por exemplo, são a interface entre você e a fiação elétrica do outro lado da caixa plástica. Você pressiona o botão “liga / desliga” para ligar e desligar a televisão.
-
-Na sua forma mais comum, uma interface é um grupo de métodos relacionados com corpos vazios. O comportamento de uma bicicleta, se especificado como uma interface, pode ser o seguinte:
-
-```
-interface Bicicleta {
-
-    // rotações da roda por minuto
-    void mudarCadencia(int novoValor);
-
-    void mudarMarcha(int novoValor);
-
-    void aumentarVelocidade(int incremento);
-
-    void freiar(int decremento);
-}
-```
-
-Para implementar essa interface, o nome da sua classe mudaria (para uma determinada marca de bicicleta, por exemplo, como Bicicleta Caloi) e você usaria a palavra-chave `implements` na declaração da classe:
-
-```
-class BicicletaCaloi implements Bicicleta {
-
-    cadência interna = 0;
-    velocidade interna = 0;
-    marcha interna = 1;
-
-   // O compilador agora exigirá que os métodos
-   // mudarCadencia, mudarMarcha, aumentarVelocidade e freiar.
-   // tudo será implementado. A compilação falhará se aqueles
-   // métodos estão faltando nesta classe.
-
-    void mudarCadencia(int novoValor) {
-         cadência = novoValor;
-    }
-
-    void mudarMarcha(int novoValor) {
-         marcha = novoValor;
-    }
-
-    void aumentarVelocidade(int incremento) {
-         velocidade = velocidade + incremento;   
-    }
-
-    void freiar(int decremento) {
-         velocidade = velocidade - decremento;
-    }
-
-    void printStates() {
-         System.out.println("cadência:" +
-             cadência + "velocidade:" +
-             velocidade + "marcha:" + marcha);
-    }
-}
-```
-
-**OBS :** A implementação de uma interface permite que uma classe se torne mais formal em relação ao comportamento que promete fornecer. As interfaces formam um contrato entre a classe e o mundo exterior, e esse contrato é aplicado no momento da construção pelo compilador. Se sua classe pretende implementar uma interface, todos os métodos definidos por essa interface deverão aparecer em seu código-fonte antes que a classe seja compilada com êxito.
- 
-
 
 ## Pacotes
 
@@ -870,6 +781,10 @@ Dentro do pacote lanchonete, iremos criar dois sub-pacotes para representar a di
 Agora, temos uma área onde apenas os Clientes podem ver e uma área onde apenas os funcionarios da lanchonete conseguem ver e ter acesso.
 
 **OBS :** Para definir um método visível a nível de pacote, basta **NÃO** declarar nenhum modificador.
+
+### Modificador protected
+
+Esse modificador é utilizado quando desejamos bloquear o acesso para as outras classes, porém, queremos deixar as classes filhas ou pais com o acesso. Logo, utilizado apenas para herança.
 
 ### Modificador Private
 
@@ -1021,6 +936,187 @@ public class SistemaCadastro {
 
 Com isso, passamos os paramêtros para o objeto criado.
 
+
+## Pilares da P.O.O
+
+### Encapsulamento
+
+O encapsulamento é a habilidade de esconder as características intrínsecas de um dado objeto de outros objetos. É a técnica de proteger os dados (atributos) e os códigos que operam sobre os dados (métodos) em uma única unidade chamada classe. Além disso, o encapsulamento protege os dados de um objeto contra acesso direto de fora da classe, expondo apenas métodos seguros para operação sobre esses dados.
+
+```
+public class MSNMessenger {
+	public void enviarMensagem() {
+		//primeiro confirmar se esta conectado a internet
+		validarConectadoInternet();
+		
+		System.out.println("Enviando mensagem");
+		
+		//depois de enviada, salva o histórico da mensagem
+		salvarHistoricoMensagem();
+		
+		
+	}
+	public void receberMensagem() {
+		System.out.println("Recebendo mensagem");
+	}
+	
+	//métodos privados, visíveis somente na classe
+	private void validarConectadoInternet() {
+		System.out.println("Validando se está conectado a internet");
+	}
+	private void salvarHistoricoMensagem() {
+		System.out.println("Salvando o histórico da mensagem");
+	}
+}
+```
+Neste exemplo, vemos um código sobre um aplicativo de mensagens. Temos alguns métodos que são executados para enviar mensagem, como salvarHistoricoMensagem() e validarConectadoInternet(). São métodos que o usuário não é necessário ver ou ter acesso. Com isso, podemos encapsular esses métodos, de forma com que sejam executados sem ser visto ou acessado pelo usuário.
+
+## Herança
+
+ A programação orientada a objetos permite que as classes herdem estados e comportamentos comumente usados ​​de outras classes. Neste exemplo, Bicycle  torna-se a superclasse de BMX, Bicicleta de Corrida e Bicicleta dupla. Na linguagem de programação Java, cada classe pode ter uma superclasse direta, e cada superclasse tem potencial para um número ilimitado de subclasses :
+ 
+<picture>
+	<source media="(prefers-color-scheme: dark)" srcset="https://docs.oracle.com/javase/tutorial/figures/java/concepts-bikeHierarchy.gif">
+ 	<source media="(prefers-color-screme: light)" srcset="https://docs.oracle.com/javase/tutorial/figures/java/concepts-bikeHierarchy.gif">
+ 	<img alt="Herança de classes" src="https://docs.oracle.com/javase/tutorial/figures/java/concepts-bikeHierarchy.gif">
+ 
+</picture> 
+
+Neste exemplo acima, temos a superclasse `Bicicleta`, que pode ter subclasses que tendem a ter estados ou comportamentos diferentes. 
+A sintaxe para criar uma subclasse é simples. No início da declaração de sua classe, use a  palavra-chave `extends`, seguida do nome da classe da qual herdar:
+
+```
+class MountainBike extends Bicicleta {
+
+    // novos campos e métodos definindo
+    // uma mountain bike iria aqui
+
+}
+
+```
+
+> Isso fornece a MountainBike todos os mesmos campos e métodos do Bicicleta, mas permite que seu código se concentre exclusivamente nos recursos que o tornam único. Isso torna o código de suas subclasses fácil de ler. Porém, você deve ter o cuidado de documentar adequadamente o estado e o comportamento que cada superclasse define, pois esse código não aparecerá no arquivo fonte de cada subclasse.
+
+## Abstração
+
+A abstração é o processo de ocultar os detalhes complexos e mostrar apenas as características essenciais de um objeto ou sistema. Permite aos desenvolvedores concentrar-se no que um objeto faz, em vez de como ele faz. A abstração envolve a simplificação de objetos complexos do mundo real para representá-los de forma mais simples no código.
+
+Esse pilar é alcançado definindo classes que representam tipos abstratos de comportamento e características. Por exemplo, uma classe “Carro” pode incluir atributos como “marca”, “modelo” e “cor”, e métodos como “ligar” e “acelerar”, sem necessariamente detalhar os mecanismos internos que permitem ao carro realizar essas funções.
+
+Com isso, temos em mente que classes abstratas vão sempre utilizar métodos com corpo vazio, pois ela não sabe como fazer. Definimos as funções na própria classe.
+
+```
+public abstract class ServicoMensagemInstantanea {
+	public abstract void enviarMensagem();
+	public abstract void receberMensagem();	
+}
+```
+
+Essa classe abstrata ela define os métodos, e todas as suas subclasses devem conter esses métodos e defini-los.
+
+```
+public class MSNMessenger extends ServicoMensagemInstantanea{
+	public void enviarMensagem() {
+		System.out.println("Enviando mensagem pelo MSN Messenger");
+	}
+	public void receberMensagem() {
+		System.out.println("Recebendo mensagem pelo MSN Messenger");
+	}
+}
+
+```
+
+Neste exemplo, vemos uma classe filha que herda os métodos da classe abstrata e define suas funções.
+
+**OBS :** É importante saber que a classe filha **TEM** que ter todas as funções declaradas da classe abstrata, caso contrário, haverá um erro de compilação.
+
+> Quando falamos de abstração, é impossível não falarmos também do próximo pilar... Polimorfismo.
+
+
+## Polimorfismo
+
+O polimorfismo, que significa “muitas formas”, é a capacidade de um método para fazer coisas diferentes com base no objeto que o invoca. É a propriedade de duas ou mais classes derivadas de uma mesma superclasse responderem a mesma mensagem, mas cada subclasse de uma forma diferente da outra classe derivada.
+
+Ou seja, podemos ter diversas formas de fazer uma ação. Um exemplo de um carro, quando lembramos do objeto carro, vem a mente, cor, volante,marcha,velocidade.... Em todos os carros isso tem, porém são trabalhados de maneiras diferentes em cada um, e isso é o polimorfismo.
+
+
+<picture>
+	<source media="(prefers-color-scheme: dark)" srcset="https://glysns.gitbook.io/~gitbook/image?url=https%3A%2F%2F1693191620-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FjFR9F4NToQ6FD39fU3wC%252Fuploads%252Fgit-blob-346b134698ce593ffb76f72333bc79bfa04e6199%252Fimage%2520%289%29.png%3Falt%3Dmedia&width=768&dpr=1&quality=100&sign=8d55bf918ff095b6c097fd7c320b5da6901754f17a20e47be28364f5a7c14cfd">
+ 	<source media="(prefers-color-screme: light)" srcset="https://glysns.gitbook.io/~gitbook/image?url=https%3A%2F%2F1693191620-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FjFR9F4NToQ6FD39fU3wC%252Fuploads%252Fgit-blob-346b134698ce593ffb76f72333bc79bfa04e6199%252Fimage%2520%289%29.png%3Falt%3Dmedia&width=768&dpr=1&quality=100&sign=8d55bf918ff095b6c097fd7c320b5da6901754f17a20e47be28364f5a7c14cfd">
+ 	<img alt="Herança de classes" src="https://glysns.gitbook.io/~gitbook/image?url=https%3A%2F%2F1693191620-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FjFR9F4NToQ6FD39fU3wC%252Fuploads%252Fgit-blob-346b134698ce593ffb76f72333bc79bfa04e6199%252Fimage%2520%289%29.png%3Falt%3Dmedia&width=768&dpr=1&quality=100&sign=8d55bf918ff095b6c097fd7c320b5da6901754f17a20e47be28364f5a7c14cfd">
+ 
+</picture> 
+
+Nesta figura, vemos um método abstrato com uma função calcular_Perimetro(), que no qual não sabe como fazer essa função. Porém, suas subclasses, cada uma tem uma forma de utilizar e fazer essa função declarada pela classe abstrata.
+
+**OBS :** Para concluirmos a compreensão, Polimorfismo permite que as classes mais abstratas, determinem ações uniformes, para que cada classe filha concreta, implemente os comportamentos de forma específica.
+
+
+
+
+
+## Interface 
+
+O que é uma interface? 
+
+Como você já aprendeu, os objetos definem sua interação com o mundo exterior através dos métodos que expõem. Os métodos formam a interface do objeto com o mundo exterior; os botões na parte frontal do seu aparelho de televisão, por exemplo, são a interface entre você e a fiação elétrica do outro lado da caixa plástica. Você pressiona o botão “liga / desliga” para ligar e desligar a televisão.
+
+Na sua forma mais comum, uma interface é um grupo de métodos relacionados com corpos vazios. O comportamento de uma bicicleta, se especificado como uma interface, pode ser o seguinte:
+
+```
+interface Bicicleta {
+
+    // rotações da roda por minuto
+    void mudarCadencia(int novoValor);
+
+    void mudarMarcha(int novoValor);
+
+    void aumentarVelocidade(int incremento);
+
+    void freiar(int decremento);
+}
+```
+
+Para implementar essa interface, o nome da sua classe mudaria (para uma determinada marca de bicicleta, por exemplo, como Bicicleta Caloi) e você usaria a palavra-chave `implements` na declaração da classe:
+
+```
+class BicicletaCaloi implements Bicicleta {
+
+    cadência interna = 0;
+    velocidade interna = 0;
+    marcha interna = 1;
+
+   // O compilador agora exigirá que os métodos
+   // mudarCadencia, mudarMarcha, aumentarVelocidade e freiar.
+   // tudo será implementado. A compilação falhará se aqueles
+   // métodos estão faltando nesta classe.
+
+    void mudarCadencia(int novoValor) {
+         cadência = novoValor;
+    }
+
+    void mudarMarcha(int novoValor) {
+         marcha = novoValor;
+    }
+
+    void aumentarVelocidade(int incremento) {
+         velocidade = velocidade + incremento;   
+    }
+
+    void freiar(int decremento) {
+         velocidade = velocidade - decremento;
+    }
+
+    void printStates() {
+         System.out.println("cadência:" +
+             cadência + "velocidade:" +
+             velocidade + "marcha:" + marcha);
+    }
+}
+```
+
+**OBS :** A implementação de uma interface permite que uma classe se torne mais formal em relação ao comportamento que promete fornecer. As interfaces formam um contrato entre a classe e o mundo exterior, e esse contrato é aplicado no momento da construção pelo compilador. Se sua classe pretende implementar uma interface, todos os métodos definidos por essa interface deverão aparecer em seu código-fonte antes que a classe seja compilada com êxito.
+ 
 
 
 
