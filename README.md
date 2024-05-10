@@ -1059,7 +1059,12 @@ Nesta figura, vemos um método abstrato com uma função calcular_Perimetro(), q
 
 O que é uma interface? 
 
-Como você já aprendeu, os objetos definem sua interação com o mundo exterior através dos métodos que expõem. Os métodos formam a interface do objeto com o mundo exterior; os botões na parte frontal do seu aparelho de televisão, por exemplo, são a interface entre você e a fiação elétrica do outro lado da caixa plástica. Você pressiona o botão “liga / desliga” para ligar e desligar a televisão.
+Podemos definir como interface o contrato entre a classe e o mundo exterior. Quando uma classe implementa uma interface, se compromete a fornecer o comportamento publicado por esta interface. As classes ajudam a definir um objeto e seu comportamento e as interfaces que auxiliam na definição dessas classes. As interfaces são formadas pela declaração de um ou mais métodos, os quais obrigatoriamente não possuem corpo.
+
+**OBS :** Como vimos anteriormente, Herança é um dos pilares de POO, mas uma curiosidade que se deve ser esclarecida, na linguagem Java, é que a mesma não permite o que conhecemos como **Herança Múltipla.**
+
+Caso desejarmos herdar multiplas classes, precisariamos transformar essas classes em interfaces.
+
 
 Na sua forma mais comum, uma interface é um grupo de métodos relacionados com corpos vazios. O comportamento de uma bicicleta, se especificado como uma interface, pode ser o seguinte:
 
@@ -1117,6 +1122,37 @@ class BicicletaCaloi implements Bicicleta {
 
 **OBS :** A implementação de uma interface permite que uma classe se torne mais formal em relação ao comportamento que promete fornecer. As interfaces formam um contrato entre a classe e o mundo exterior, e esse contrato é aplicado no momento da construção pelo compilador. Se sua classe pretende implementar uma interface, todos os métodos definidos por essa interface deverão aparecer em seu código-fonte antes que a classe seja compilada com êxito.
  
+**Um objeto de um tipo definido por uma interface não pode ser instanciado de forma alguma.** 
+
+Os membros declarados em uma interface são implicitamente públicos. Neste ponto, devemos considerar que não é permitido declarar variáveis em uma interface, isto em virtude desta ser uma implementação do atributo de um objeto.
+
+```
+public class Funcionario
+    {
+        interface IReajuste
+        {
+            double Reajuste();
+        }
+
+        public class ReajusteFuncionario : IReajuste
+        {
+            //Propriedades públicas da minha classe
+            public string nomeFuncionario;
+            public double salarioFuncionario;
+
+            //Implementação do método Reajuste, da interface IReajuste
+            public double Reajuste()
+            {
+                salarioFuncionario = salarioFuncionario * 1.50;
+
+                return salarioFuncionario;
+            }
+        }
+    }
+```
+
+Percebam que minha interface tinha um método em seu escopo. Usamos esse método na classe, que herda dessa interface. Assim é estabelecido um “contrato” entre a interface, que definiu o método Reajuste() e a classe, que herdou sua implementação usando seu método criado anteriormente.
+
 
 
 
