@@ -100,6 +100,7 @@ short numeroCurto2 = numeroNormal;
 ```
 > Nesse código, conseguimos declarar a variável numeroCurto e numeroNormal, porém a numeroCurto2 não conseguiremos, pois o  `short` ser menor que o `int`. Porém o contrário, conseguiremos.
 
+
 ## :pushpin: Constantes
 
 > Constantes seguem os mesmos padrões que uma variável, porém com uma diferença.
@@ -137,6 +138,116 @@ public class ExemploVariavel {
 	}
 }
 ```
+
+## Matrizes
+
+Uma matriz é um objeto contêiner que contém um número fixo de valores de um único tipo. O comprimento de uma matriz é estabelecido quando a matriz é criada. Após a criação, seu comprimento é fixo.
+
+<picture>
+	<source media="(prefers-color-scheme: dark)" srcset="https://docs.oracle.com/javase/tutorial/figures/java/objects-tenElementArray.gif">
+ 	<source media="(prefers-color-screme: light)" srcset="https://docs.oracle.com/javase/tutorial/figures/java/objects-tenElementArray.gif">
+ 	<img alt="Exemplo de um Array." src="https://docs.oracle.com/javase/tutorial/figures/java/objects-tenElementArray.gif">
+ 
+</picture>
+
+> Cada item em uma matriz é chamado de elemento e cada elemento é acessado por seu índice numérico. Conforme mostrado na ilustração anterior, a numeração começa em 0. O 9º elemento, por exemplo, seria portanto acessado no índice 8.
+
+**Como declaramos uma array?**
+
+Assim como as declarações para variáveis ​​de outros tipos, uma declaração de array possui dois componentes: o tipo do array e o nome do array. O tipo de um array é escrito como `type[]`, onde type é o tipo de dados dos elementos contidos; os colchetes são símbolos especiais que indicam que esta variável contém um array. O tamanho do array não faz parte do seu tipo (é por isso que os colchetes estão vazios). 
+
+```
+//declara um array de inteiros
+int[] umaArray;
+```
+
+**Inicializando o array**
+
+Uma maneira de criar um array é com o operador `new`. A próxima instrução do ArrayDemoprograma aloca um `array` com memória suficiente para 10 elementos inteiros e atribui o array à umaArray.
+
+```
+//cria um array de inteiros
+anArray = new int[10];
+```
+
+A partir disso podemos inserir os valores e manipula-las.
+
+Alternativamente, podemos usar a sintaxe de atalho para criar e inicializar um array:
+
+```
+int[] umaArray = {
+    100, 200, 300,
+    400, 500, 600,
+    700, 800, 900, 1000
+};
+```
+
+**OBS :** Aqui, o comprimento da matriz é determinado pelo número de valores fornecidos entre colchetes e separados por vírgulas. Logo, temos uma matriz/ array com 10 indices.
+
+
+O programa a seguir `ArrayDemo`, cria um array de inteiros, coloca alguns valores no array e imprime cada valor na saída padrão.
+
+```
+class ArrayDemo {
+    public static void main(String[] args) {
+        //declara um array de inteiros
+        int[] umaArray;
+
+        //aloca memória para 10 inteiros
+        anArray = new int[10];
+           
+        // inicializa o primeiro elemento
+        umaArray[0] = 100;
+        // inicializa o segundo elemento
+        umaArray[1] = 200;
+        // e assim por diante
+        umaArray[2] = 300;
+        umaArray[3] = 400;
+
+        System.out.println("Elemento no índice 0:"
+                           + anArray[0]);
+        System.out.println("Elemento no índice 1:"
+                           + umArray[1]);
+        System.out.println("Elemento no índice 2:"
+                           + umArray[2]);
+        System.out.println("Elemento no índice 3:"
+                           + umaArray[3]);
+
+    }
+}
+
+```
+
+**O programa imprimiria isso :**
+
+Elemento no índice 0: 100
+
+Elemento no índice 1: 200
+
+Elemento no índice 2: 300
+
+Elemento no índice 3: 400
+
+Podemos também declarar uma matriz de matrizes (também conhecida como matriz multidimensional ) usando dois ou mais conjuntos de colchetes, como String[][] nomes. Cada elemento, portanto, deve ser acessado por um número correspondente de valores de índice. Na linguagem de programação Java, um array multidimensional é um array cujos componentes são eles próprios arrays. Isso é diferente de arrays em C ou Fortran. Uma consequência disso é que as linhas podem variar em comprimento.
+
+```
+class MultiDimArrayDemo {
+    public static void main(String[] args) {
+        String[][] names = {
+            {"Mr. ", "Mrs. ", "Ms. "},
+            {"Smith", "Jones"}
+        };
+        // Mr. Smith
+        System.out.println(names[0][0] + names[1][0]);
+        // Ms. Jones
+        System.out.println(names[0][2] + names[1][1]);
+    }
+}
+```
+
+
+
+
 
 ## :shipit: Operadores
 
@@ -563,8 +674,6 @@ class BicycleDemo {
 ```
 **OBS** : Veja que criamos 2 objetos proveniente da classe Bicicleta, logo, temos 2 bicicletas. Uma `bike1` e a outra `bike2`.
 
-**Para criação de classes, classificamos-as como:**
-
 Seguindo algumas convenções, as nossas classes são classificadas como:
 
 > Classe de modelo (model): classes que representam estrutura de domínio da aplicação, exemplo: Cliente, Pedido, Nota Fiscal e etc.
@@ -584,11 +693,103 @@ Seguindo algumas convenções, as nossas classes são classificadas como:
  
 </picture>
 
+## Herança
+
+ A programação orientada a objetos permite que as classes herdem estados e comportamentos comumente usados ​​de outras classes. Neste exemplo, Bicycle  torna-se a superclasse de BMX, Bicicleta de Corrida e Bicicleta dupla. Na linguagem de programação Java, cada classe pode ter uma superclasse direta, e cada superclasse tem potencial para um número ilimitado de subclasses :
+ 
+<picture>
+	<source media="(prefers-color-scheme: dark)" srcset="https://docs.oracle.com/javase/tutorial/figures/java/concepts-bikeHierarchy.gif">
+ 	<source media="(prefers-color-screme: light)" srcset="https://docs.oracle.com/javase/tutorial/figures/java/concepts-bikeHierarchy.gif">
+ 	<img alt="Herança de classes" src="https://docs.oracle.com/javase/tutorial/figures/java/concepts-bikeHierarchy.gif">
+ 
+</picture> 
+
+Neste exemplo acima, temos a superclasse `Bicicleta`, que pode ter subclasses que tendem a ter estados ou comportamentos diferentes. 
+A sintaxe para criar uma subclasse é simples. No início da declaração de sua classe, use a  palavra-chave `extends`, seguida do nome da classe da qual herdar:
+
+```
+class MountainBike extends Bicicleta {
+
+    // novos campos e métodos definindo
+    // uma mountain bike iria aqui
+
+}
+
+```
+
+> Isso fornece a MountainBike todos os mesmos campos e métodos do Bicicleta, mas permite que seu código se concentre exclusivamente nos recursos que o tornam único. Isso torna o código de suas subclasses fácil de ler. Porém, você deve ter o cuidado de documentar adequadamente o estado e o comportamento que cada superclasse define, pois esse código não aparecerá no arquivo fonte de cada subclasse.
+
+## Interface 
+
+O que é uma interface? 
+
+Como você já aprendeu, os objetos definem sua interação com o mundo exterior através dos métodos que expõem. Os métodos formam a interface do objeto com o mundo exterior; os botões na parte frontal do seu aparelho de televisão, por exemplo, são a interface entre você e a fiação elétrica do outro lado da caixa plástica. Você pressiona o botão “liga / desliga” para ligar e desligar a televisão.
+
+Na sua forma mais comum, uma interface é um grupo de métodos relacionados com corpos vazios. O comportamento de uma bicicleta, se especificado como uma interface, pode ser o seguinte:
+
+```
+interface Bicicleta {
+
+    // rotações da roda por minuto
+    void mudarCadencia(int novoValor);
+
+    void mudarMarcha(int novoValor);
+
+    void aumentarVelocidade(int incremento);
+
+    void freiar(int decremento);
+}
+```
+
+Para implementar essa interface, o nome da sua classe mudaria (para uma determinada marca de bicicleta, por exemplo, como Bicicleta Caloi) e você usaria a palavra-chave `implements` na declaração da classe:
+
+```
+class BicicletaCaloi implements Bicicleta {
+
+    cadência interna = 0;
+    velocidade interna = 0;
+    marcha interna = 1;
+
+   // O compilador agora exigirá que os métodos
+   // mudarCadencia, mudarMarcha, aumentarVelocidade e freiar.
+   // tudo será implementado. A compilação falhará se aqueles
+   // métodos estão faltando nesta classe.
+
+    void mudarCadencia(int novoValor) {
+         cadência = novoValor;
+    }
+
+    void mudarMarcha(int novoValor) {
+         marcha = novoValor;
+    }
+
+    void aumentarVelocidade(int incremento) {
+         velocidade = velocidade + incremento;   
+    }
+
+    void freiar(int decremento) {
+         velocidade = velocidade - decremento;
+    }
+
+    void printStates() {
+         System.out.println("cadência:" +
+             cadência + "velocidade:" +
+             velocidade + "marcha:" + marcha);
+    }
+}
+```
+
+**OBS :** A implementação de uma interface permite que uma classe se torne mais formal em relação ao comportamento que promete fornecer. As interfaces formam um contrato entre a classe e o mundo exterior, e esse contrato é aplicado no momento da construção pelo compilador. Se sua classe pretende implementar uma interface, todos os métodos definidos por essa interface deverão aparecer em seu código-fonte antes que a classe seja compilada com êxito.
+ 
+
+
 ## Pacotes
 
-A linguagem Java, é composta por milhares de classes, com as finalidades de por exemplo: Classes de tipos de dados, representação de texto, números, datas, arquivos e diretórios, conexão com banco de dados, entre outras. Imagina todas estas classes, existindo em um único nível de documentos?
+> Um pacote é um namespace que organiza um conjunto de classes e interfaces relacionadas. Conceitualmente, você pode pensar nos pacotes como sendo semelhantes a diferentes pastas do seu computador. Você pode manter páginas HTML em uma pasta, imagens em outra e scripts ou aplicativos em outra. Como o software escrito na linguagem de programação Java pode ser composto de centenas ou milhares de classes individuais, faz sentido manter tudo organizado colocando classes e interfaces relacionadas em pacotes.
 
-Para prevenir este acontecimento, a linguagem dispõe de um recurso, que organiza as classes padrões criadas por nós, que conhecemos como pacote (package). Os pacotes são subdiretórios, a partir da pasta src do nosso projeto, onde estão localizadas, as classes da linguagem e novas que forem criadas para o projeto.
+A plataforma Java fornece uma enorme biblioteca de classes (um conjunto de pacotes) adequada para uso em suas próprias aplicações. Esta biblioteca é conhecida como "Interface de Programação de Aplicativo" ou "API", abreviadamente. Seus pacotes representam as tarefas mais comumente associadas à programação de uso geral. Por exemplo, um objeto `String` contém estado e comportamento para cadeias de caracteres.
+
+> Existem literalmente milhares de classes para você escolher. Isso permite que você, programador, se concentre no design de seu aplicativo específico, em vez de na infraestrutura necessária para fazê-lo funcionar.
 
 
 <picture>
@@ -644,6 +845,9 @@ Como o próprio nome representa, quando nossa classe, método e atributo é defi
 
 </picture>
 
+
+Neste exemplo acima, temos uma imagem de uma lanchonete, no qual toda sua área pode ser vista por todos na lanchonete.O que fica uma pergunta... Será que tudo precisa ser visto?
+
 ### Modificador Default
 
 O modificador `default`, está fortemente associado a organização das classes por pacotes, algumas implementações, não precisam estar disponíveis por todo o projeto, e este modificador de acesso, restringe a visibilidade por pacotes.
@@ -662,6 +866,8 @@ Dentro do pacote lanchonete, iremos criar dois sub-pacotes para representar a di
  	<img alt="Container das Classes" src="https://glysns.gitbook.io/~gitbook/image?url=https%3A%2F%2F1693191620-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FjFR9F4NToQ6FD39fU3wC%252Fuploads%252Fgit-blob-1fdf089ebb01ef7239344fbeae3dbf9ca71c1db0%252Fpacotes.png%3Falt%3Dmedia&width=768&dpr=4&quality=100&sign=62700f25ee79027f5cc0c161122c7e44cee300b12f9b5a7f0ec910706cfb19cb">
 
 </picture>
+
+Agora, temos uma área onde apenas os Clientes podem ver e uma área onde apenas os funcionarios da lanchonete conseguem ver e ter acesso.
 
 **OBS :** Para definir um método visível a nível de pacote, basta **NÃO** declarar nenhum modificador.
 
@@ -742,11 +948,86 @@ public class Escola {
 ```
 
 
+## Método Construtor
+
+Sabemos que, para criar um objeto na linguagem Java, utilizamos a seguinte estrutura de código:
+
+`Classe novoObjeto = new Classe();`
+
+Desta forma, será criado um novo objeto na memória, este recurso também é conhecido como instanciar um novo objeto.
+
+Muitas vezes, já queremos que na criação (instanciação) de um objeto, a linguagem já solicite para quem for criar este novo objeto, defina algumas propriedades essenciais. Abaixo, iremos ilustrar uma classe Pessoa, onde a mesma terá os atributos: Nome, CPF e Endereço.
+
+```
+public class Pessoa {
+	private String nome;
+	private String cpf;
+	private String endereco;
+	
+	public String getNome() {
+		return nome;
+	}
+	public String getCpf() {
+		return cpf;
+	}
+	public String getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	//...
+	//setters de nome e cpf ?
+}
+```
+
+Como não temos os setters, para inserir novos valores a variáveis, podemos utilizar os construtores para passar esses valores.
+
+```
+public class Pessoa {
+	private String nome;
+	private String cpf;
+	private String endereco;
+	
+	// método construtor
+	// o nome deverá ser igual ao nome da classe
+	public Pessoa (String cpf, String nome) {
+		this.cpf = cpf;
+		this.nome = nome;
+	}
+	
+	//...
+	//getters
+	//setters
+}
+```
+
+**OBS :** Os métodos construtores **SEMPRE** deve ter o mesmo nome da classe.
+
+Agora, com o método construtor criado, podemos instanciar essa classe e passar os parâmetros que selecionamos.
+
+```
+public class SistemaCadastro {
+	public static void main(String[] args) {
+		//criamos uma pessoa no sistema
+		Pessoa marcos = new Pessoa("06724506716","MARCOS SILVA");
+		
+		//continua ...
+		
+	}
+}
+
+```
+
+Com isso, passamos os paramêtros para o objeto criado.
+
+
 
 
 
 
 Essa documentação teve base em vários materiais de estudos.
+
 > [Gitbook Java Básico](https://glysns.gitbook.io/java-basico)
 
 > [W3Schools](https://www.w3schools.com/java/)
@@ -754,6 +1035,8 @@ Essa documentação teve base em vários materiais de estudos.
 >[Learn Java](https://dev.java/learn/)
 
 >[Java Documentation](https://docs.oracle.com/javase/tutorial/tutorialLearningPaths.html)
+
+>[Java API'S Overview]([https://dev.java/learn/](https://docs.oracle.com/javase/8/docs/api/index.html))
 
 
 
