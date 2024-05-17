@@ -5,7 +5,9 @@ public class MinhaVariavel {
  
     
 
-    public static void main (String[] args){ 
+    public static void main (String[] args){
+
+
     Scanner s = new Scanner(System.in);
 
     System.out.println("Digite o seu nome:");
@@ -25,7 +27,13 @@ public class MinhaVariavel {
     int resultado;
 
     System.out.println("Digite uma opção:");
-    System.out.println("1 - somar,2 - multiplicar, 3 - divisão e 4 - subtração.");
+    System.out.println(""" 
+                       1 - somar,
+                       2 - multiplicar,
+                       3 - divisão 
+                       4 - subtração.
+                       """
+    );
 
     opcoes = s.nextInt();
 
