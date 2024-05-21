@@ -1155,8 +1155,11 @@ Percebam que minha interface tinha um método em seu escopo. Usamos esse método
 
 
 
+## Materiais de Estudos
 
+[Collections Framework Java](src/edu/lucas/collections/README.md)
 
+## Referências
 
 Essa documentação teve base em vários materiais de estudos.
 
