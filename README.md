@@ -1159,6 +1159,8 @@ Percebam que minha interface tinha um método em seu escopo. Usamos esse método
 
 [Collections Framework Java](src/edu/lucas/collections/README.md)
 
+[List - Collections Framework Java](src/edu/lucas/collections/exerciciosList/ListsREADME.md)
+
 ## Referências
 
 Essa documentação teve base em vários materiais de estudos.
