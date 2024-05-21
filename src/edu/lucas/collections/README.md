@@ -108,7 +108,7 @@ A hierarquia da Collections Framework tem uma segunda árvore. São as classes e
 
 ## Materias de Estudo
 
-[List - Collections Framework Java](src/edu/lucas/collections/exerciciosList/ListsREADME.md)
+[List - Collections Framework Java](exerciciosList/ListsREADME.md)
 
 
 # Referências
