@@ -106,6 +106,11 @@ A hierarquia da Collections Framework tem uma segunda árvore. São as classes e
 **Cada uma das implementações tem todos os métodos definidos em suas interfaces. Em qualquer uma delas é possível inserir elementos `null`. Em mapas, tanto chaves quanto valores podem ser `null`. Diferente de `Vector` e `Hashtable`, não são seguras para serem usadas com threads (não são Thread-safe). Ou seja, o acesso concorrente a esses objetos pode produzir resultados imprevisíveis**
 
 
+## Materias de Estudo
+
+[List - Collections Framework Java](src/edu/lucas/collections/exerciciosList/ListsREADME.md)
+
+
 # Referências
 
 [DevMedia Collection](https://www.devmedia.com.br/java-collections-como-utilizar-collections/18450)
